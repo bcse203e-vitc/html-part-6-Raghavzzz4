@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Even or Odd</title>
+</head>
+<body>
+    <h1>Check Even or Odd</h1>
+    <input id="num-input" type="text" placeholder="Enter numbers separated by commas">
+    <button id="check-btn">Check</button>
+    <p id="result"></p>
+
+    <script>
+        const numInput = document.getElementById('num-input');
+        const checkBtn = document.getElementById('check-btn');
+        const resultPara = document.getElementById('result');
+
+        function checkEvenOrOdd(num) {
+            return num % 2 === 0 ? `${num} is even` : `${num} is odd`;
+        }
+
+        function separateEvenAndOdd() {
+            const numbers = numInput.value.split(',').map(Number);
+            const evenNumbers = numbers.filter(num => num % 2 === 0);
+            const oddNumbers = numbers.filter(num => num % 2 !== 0);
+
+            resultPara.innerText = `Even numbers: ${evenNumbers.join(', ')}\nOdd numbers: ${oddNumbers.join(', ')}`;
+        }
+
+        // Add event listener to the button
+        checkBtn.addEventListener('click', separateEvenAndOdd);
+    </script>
+</body>
+</html>

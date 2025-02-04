@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reverse Number</title>
+</head>
+<body>
+    <h1>Reverse Number</h1>
+    <input id="num-input" type="number" placeholder="Enter a number">
+    <button id="reverse-btn">Reverse</button>
+    <p id="result"></p>
+
+    <script>
+       
+        const numInput = document.getElementById('num-input');
+        const reverseBtn = document.getElementById('reverse-btn');
+        const resultPara = document.getElementById('result');
+
+        
+        function reverseNumber(num) {
+            return parseInt(num.toString().split('').reverse().join(''));
+        }
+
+        
+        function isPalindromic(num) {
+            return num === reverseNumber(num);
+        }
+
+        
+        function handleButtonClick() {
+            const num = parseInt(numInput.value);
+            const reversedNum = reverseNumber(num);
+            const isPalindrome = isPalindromic(num);
+
+            resultPara.innerText = `Original number: ${num}\nReversed number: ${reversedNum}\nIs palindromic: ${isPalindrome ? 'Yes' : 'No'}`;
+        }
+
+        reverseBtn.addEventListener('click', handleButtonClick);
+    </script>
+</body>
+</html>

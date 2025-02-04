@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swap Two Variables</title>
+</head>
+<body>
+    <h1>Swap Two Variables</h1>
+    <input id="num1" type="number" value="5">
+    <input id="num2" type="number" value="10">
+    <button id="swap-btn">Swap</button>
+    <p id="result"></p>
 
+    <script>
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const swapBtn = document.getElementById('swap-btn');
+        const resultPara = document.getElementById('result');
+
+        function swapVariables() {
+            let num1 = parseInt(num1Input.value);
+            let num2 = parseInt(num2Input.value);
+
+            resultPara.innerText = `Before swapping: num1 = ${num1}, num2 = ${num2}`;
+            [num1, num2] = [num2, num1]; // Swap the values of num1 and num2
+            resultPara.innerText += `\nAfter swapping: num1 = ${num1}, num2 = ${num2}`;
+        }
+        swapBtn.addEventListener('click', swapVariables);
+    </script>
+</body>
+</html>
